@@ -134,9 +134,16 @@ for i,v in pairs(Players:GetChildren()) do
 	end
 end
 		
-Players.PlayerAdded:Connect(function(plr)
-	if ESPenabled then
-		repeat wait(1) until workspace:FindFirstChild(plr.Name) and getRoot(workspace:FindFirstChild(plr.Name))
-		ESP(plr)
+while wait(2) do
+	for i,v in pairs(COREGUI:GetChildren()) do
+		if v.Name == player.Name..'_ESP' or v.Name == player.Name..'_LC' then
+			
+		else
+			for i,v in pairs(Players:GetChildren()) do
+				if v.ClassName == "Player" and v.Name ~= speaker.Name then
+					ESP(v)
+				end
+			end
+		end
 	end
-end)
+end
